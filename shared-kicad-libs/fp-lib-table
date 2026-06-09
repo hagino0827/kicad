@@ -1,0 +1,1 @@
+(lib (name "Official_Footprints") (type KiCad) (uri "${TEAM_SHARED_LIBS}/footprints/Official.pretty") (options "") (descr "Team official footprints"))

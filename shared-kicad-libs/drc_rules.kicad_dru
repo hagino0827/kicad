@@ -1,0 +1,50 @@
+# drc_rules.kicad_dru
+
+# 目的:
+# チーム共通の設計ルール（DRC）例および導入手順。
+# 実際のKiCadプロジェクトに読み込む前に数値をチームで合意してください。
+
+# --- 基本ルール（推奨値） ---
+# 最小ドリル径（mm）
+min_drill: 0.8
+
+# 最小クリアランス（mm）
+min_clearance: 0.25
+
+# 最小アニュラリング（ランド幅 − ドリル径の差の半分, mm）
+min_annular_ring: 0.25
+
+# 禁止ルール（例: 小径ドリルの禁止）
+# 0.5mm以下のドリルは使用禁止
+forbidden_drill_max: 0.5
+
+# パッド形状に関する推奨
+# through-hole pads: recommended_size = drill_diameter + 1.4  # mm
+
+# 3Dモデル割当: フットプリントは必ず 3dmodels に STEP を割り当てること
+# 例: ${KIPRJMOD}/3dmodels/<part>.step
+
+# --- KiCad への導入メモ ---
+# - KiCad のプロジェクトテンプレート（.kicad_pro）にこのファイルへの参照を記載するか、
+#   チームで決めたパス変数（例: TEAM_SHARED_LIBS）を使ってプロジェクトに読み込ませてください。
+# - KiCad 8 の「カスタムルール」機能を使えば、フットプリント名や属性に基づく条件付けが可能です。
+
+# --- チェック実行方法（レビュアー向け） ---
+# プルリクで差分のフットプリントを確認し、下記を検証してください:
+# - ドリル径が min_drill 未満ではないか
+# - 指定禁止ドリルが使われていないか
+# - パッドサイズが推奨値に近いか（実装可能か）
+# - 3Dモデルが割当されているか（特殊部品は必須）
+
+# --- 例: 簡易スクリプト用の出力フォーマット（参考・任意） ---
+# CSV ヘッダ: part_name, pad_index, drill_mm, pad_x_mm, pad_y_mm, pad_dia_mm
+# Sample DRC rules for team (informational)
+# KiCad DRC files are typically managed via KiCad GUI; this is a reference file.
+# Example policy: minimum drill diameters per pad type
+# Format here is free-form for team documentation; integrate into project .kicad_pro or custom rules as needed.
+
+# Recommended minimums (example):
+# Through-hole pins: min_drill = 1.0 mm for pins >= 0.8 mm
+# SMD vias: min_drill = 0.3 mm
+
+# Use KiCad 8 custom rules to enforce these programmatically in projects.

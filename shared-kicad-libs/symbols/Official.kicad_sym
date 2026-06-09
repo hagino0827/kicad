@@ -1,0 +1,5 @@
+(kicad_symbol_lib (version 20211014) (generator symbol_editor)
+  (symbol (name "SampleSymbol") (in_bom Yes) (on_board Yes)
+    (pin passive 1)
+  )
+)

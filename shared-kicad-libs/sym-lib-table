@@ -1,0 +1,1 @@
+(lib (name "Official_Symbols") (type KiCad) (uri "${TEAM_SHARED_LIBS}/symbols/Official.kicad_sym") (options "") (descr "Team official symbols"))

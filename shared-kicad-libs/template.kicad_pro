@@ -1,0 +1,11 @@
+# Sample .kicad_pro template with DRC/custom rules reference
+[general]
+version=20240000
+
+[board_setup]
+# Reference to DRC rules file placed in the shared repo
+drc_rules=${TEAM_SHARED_LIBS}/drc_rules.kicad_dru
+
+# Example custom rules section (document for team)
+[custom_rules]
+# Define rules in KiCad 8 custom rule syntax per project needs
